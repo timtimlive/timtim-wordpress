@@ -60,6 +60,24 @@ vulnerability** on this repository's Security tab. See [SECURITY.md](SECURITY.md
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).
 
+## TimTim.Live Developer Tools
+
+Open-source tools for connecting websites, apps and platforms to TimTim.Live.
+
+### What is open source
+
+SDKs, widgets, adapters, examples and public API specifications.
+
+### What is not included
+
+The hosted TimTim.Live Event API implementation, production databases, ticketing backend, checkout systems, attribution systems, payouts, fraud systems, customer data, infrastructure and proprietary business logic are not part of this repository.
+
+These tools connect to the hosted TimTim.Live API at:
+
+https://api.timtim.live
+
+Open-source licenses for client software do not grant ownership of TimTim.Live event data, API services, commercial rights, certification marks or trademarks.
+
 ## License
 
 GPL-2.0-or-later, like WordPress itself. See [LICENSE](LICENSE).
