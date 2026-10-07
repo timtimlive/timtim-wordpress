@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  php-lint:
+    name: PHP ${{ matrix.php }} syntax
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ["7.4", "8.0", "8.1", "8.2", "8.3"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
+      - name: Every PHP file parses
+        run: find timtim-live-events -name '*.php' -print0 | xargs -0 -n1 php -l
+      - name: The plugin only talks to timtim.live
+        run: |
+          if grep -rnoE "https?://[a-zA-Z0-9.-]+" timtim-live-events --include='*.php' --include='*.js' | grep -vE "https://(timtim\.live|www\.gnu\.org)"; then
+            echo "Found an address other than https://timtim.live"; exit 1
+          fi
+      - name: Versions agree (header, constant, readme)
+        run: |
+          h=$(grep -oP '^ \* Version:\s+\K\S+' timtim-live-events/timtim-live-events.php)
+          c=$(grep -oP "TTLE_VERSION', '\K[^']+" timtim-live-events/timtim-live-events.php)
+          r=$(grep -oP '^Stable tag:\s+\K\S+' timtim-live-events/readme.txt)
+          echo "header=$h constant=$c readme=$r"
+          [ "$h" = "$c" ] && [ "$h" = "$r" ]
+
+  dependency-review:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/dependency-review-action@v4

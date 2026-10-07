@@ -1,0 +1,21 @@
+/* TimTim.Live Events — cards. Scoped under .ttle so the site's theme keeps everything else. */
+.ttle { margin: 1.5em 0; }
+.ttle-grid { display: grid; gap: 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); list-style: none; margin: 0; padding: 0; }
+.ttle-cols-1 .ttle-grid { grid-template-columns: minmax(0, 1fr); }
+.ttle-cols-2 .ttle-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.ttle-cols-4 .ttle-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 782px) { .ttle .ttle-grid { grid-template-columns: minmax(0, 1fr); } }
+.ttle-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; display: flex; flex-direction: column; margin: 0; overflow: hidden; }
+.ttle-img { aspect-ratio: 16 / 9; background: #f1f5f9; display: block; height: auto; object-fit: cover; width: 100%; }
+.ttle-body { display: flex; flex: 1; flex-direction: column; gap: 4px; padding: 12px 14px; }
+.ttle-badge { align-self: flex-start; background: #fef3c7; border-radius: 999px; color: #92400e; font-size: 11px; font-weight: 800; letter-spacing: .04em; padding: 2px 8px; }
+.ttle-badge-off { background: #fee2e2; color: #991b1b; }
+.ttle-name { font-size: 1.05em; font-weight: 800; line-height: 1.25; margin: 0; }
+.ttle-meta, .ttle-price { font-size: .92em; margin: 0; }
+.ttle-meta { color: #475569; }
+.ttle-price { font-weight: 700; }
+.ttle-buy { background: #0e7490; border-radius: 12px; color: #fff !important; display: block; font-weight: 800; margin-top: auto; padding: 10px 12px; text-align: center; text-decoration: none !important; }
+.ttle-buy:focus-visible { outline: 3px solid #0f172a; outline-offset: 2px; }
+.ttle-empty, .ttle-credit { color: #475569; font-size: .9em; }
+.ttle-credit a { color: inherit; }
+.ttle-admin-note { background: #fff7ed; border: 1px solid #fdba74; border-radius: 8px; color: #7c2d12; font-size: .9em; padding: 8px 12px; }

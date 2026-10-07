@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security problem (private)
+    url: https://github.com/timtimlive/timtim-wordpress/security/advisories/new
+    about: Never report security problems in a public issue.
+  - name: Questions and help
+    url: https://github.com/timtimlive/timtim-live-events/discussions
+    about: Ask in Discussions.
